@@ -1,8 +1,8 @@
 package service;
 
-public class LibraryService {
+public class SOAPLibraryService {
 
-	public LibraryService() {
+	public SOAPLibraryService() {
 		// TODO Auto-generated constructor stub
 	}
 
