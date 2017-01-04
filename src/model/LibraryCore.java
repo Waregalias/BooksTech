@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 import entities.*;
 
 public class LibraryCore implements ILibraryCore {
+	private Map<Long, Person> persons = new HashMap<Long, Person>();
 	private Map<Long, Author> authors = new HashMap<Long, Author>();
 	private Map<Long, Book> books = new HashMap<Long, Book>();
 	private Map<Long, Category> categories = new HashMap<Long, Category>();
@@ -15,6 +17,9 @@ public class LibraryCore implements ILibraryCore {
 	private Map<Long, User> users = new HashMap<Long, User>();
 
 	public void dataDemo(){
+		addPerson(new Person(1, "lastname", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date()));
+		addPerson(new Person(2, "lastname2", "surname2", "M", "picture2.jpg", "email2@ynov.com", new java.util.Date()));
+		addPerson(new Person(3, "lastname3", "surname3", "M", "picture3.jpg", "email3@ynov.com", new java.util.Date()));
 		addAuthor(new Author(1, "about", "nationality"));
 		addAuthor(new Author(2, "about2", "nationality2"));
 		addAuthor(new Author(3, "about3", "nationality3"));
@@ -31,6 +36,37 @@ public class LibraryCore implements ILibraryCore {
 		addUser(new User(1, "customer", "customer", new java.util.Date()));
 		addUser(new User(1, "assistant", "assistant", new java.util.Date()));
 	}	
+	
+	@Override
+	public List<Person> listPerson() {
+		return new ArrayList<Person>(persons.values());
+	}
+
+	@Override
+	public Person addPerson(Person p) {
+		persons.put(p.getId(), p);		
+		return p;
+	}
+
+	@Override
+	public Person getPerson(long id) {
+		return persons.get(id);
+	}
+
+	@Override
+	public Person updatePerson(Person p) {
+		persons.put(p.getId(), p);
+		return p;
+	}
+
+	@Override
+	public boolean deletePerson(long id) {
+		if(persons.get(id)!=null){
+			persons.remove(id);
+			return true;
+		}
+		else throw new RuntimeException("Personne introuvable...");
+	}
 	
 	@Override
 	public List<Author> listAuthor() {
@@ -91,7 +127,7 @@ public class LibraryCore implements ILibraryCore {
 			books.remove(id);
 			return true;
 		}
-		else throw new RuntimeException("Auteur introuvable...");
+		else throw new RuntimeException("Livre introuvable...");
 	}
 
 	@Override
@@ -122,7 +158,7 @@ public class LibraryCore implements ILibraryCore {
 			categories.remove(id);
 			return true;
 		}
-		else throw new RuntimeException("Auteur introuvable...");
+		else throw new RuntimeException("Catégorie introuvable...");
 	}
 
 	@Override
@@ -153,7 +189,7 @@ public class LibraryCore implements ILibraryCore {
 			loans.remove(id);
 			return true;
 		}
-		else throw new RuntimeException("Auteur introuvable...");
+		else throw new RuntimeException("Prêt introuvable...");
 	}
 
 	@Override
@@ -184,7 +220,7 @@ public class LibraryCore implements ILibraryCore {
 			users.remove(id);
 			return true;
 		}
-		else throw new RuntimeException("Auteur introuvable...");
+		else throw new RuntimeException("Utilisateur introuvable...");
 	}
 
 }
