@@ -16,7 +16,7 @@ public class LibraryCore implements ILibraryCore {
 	private Map<Long, Loan> loans = new HashMap<Long, Loan>();
 	private Map<Long, User> users = new HashMap<Long, User>();
 
-	public void dataDemo(){
+	public void dataDemo() {
 		addPerson(new Person(1, "lastname", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date()));
 		addPerson(new Person(2, "lastname2", "surname2", "M", "picture2.jpg", "email2@ynov.com", new java.util.Date()));
 		addPerson(new Person(3, "lastname3", "surname3", "M", "picture3.jpg", "email3@ynov.com", new java.util.Date()));
@@ -35,8 +35,8 @@ public class LibraryCore implements ILibraryCore {
 		addUser(new User(1, "admin", "password", new java.util.Date()));
 		addUser(new User(1, "customer", "customer", new java.util.Date()));
 		addUser(new User(1, "assistant", "assistant", new java.util.Date()));
-	}	
-	
+	}
+
 	@Override
 	public List<Person> listPerson() {
 		return new ArrayList<Person>(persons.values());
@@ -44,7 +44,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public Person addPerson(Person p) {
-		persons.put(p.getId(), p);		
+		persons.put(p.getId(), p);
 		return p;
 	}
 
@@ -61,13 +61,13 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deletePerson(long id) {
-		if(persons.get(id)!=null){
+		if (persons.get(id) != null) {
 			persons.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Personne introuvable...");
+		} else
+			throw new RuntimeException("Personne introuvable...");
 	}
-	
+
 	@Override
 	public List<Author> listAuthor() {
 		return new ArrayList<Author>(authors.values());
@@ -75,7 +75,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public Author addAuthor(Author a) {
-		authors.put(a.getId(), a);		
+		authors.put(a.getId(), a);
 		return a;
 	}
 
@@ -92,11 +92,11 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deleteAuthor(long id) {
-		if(authors.get(id)!=null){
+		if (authors.get(id) != null) {
 			authors.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Auteur introuvable...");
+		} else
+			throw new RuntimeException("Auteur introuvable...");
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public Book addBook(Book b) {
-		books.put(b.getId(), b);		
+		books.put(b.getId(), b);
 		return b;
 	}
 
@@ -123,11 +123,11 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deleteBook(long id) {
-		if(books.get(id)!=null){
+		if (books.get(id) != null) {
 			books.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Livre introuvable...");
+		} else
+			throw new RuntimeException("Livre introuvable...");
 	}
 
 	@Override
@@ -137,7 +137,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public Category addCategory(Category c) {
-		categories.put(c.getId(), c);		
+		categories.put(c.getId(), c);
 		return c;
 	}
 
@@ -154,11 +154,11 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deleteCategory(long id) {
-		if(categories.get(id)!=null){
+		if (categories.get(id) != null) {
 			categories.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Catégorie introuvable...");
+		} else
+			throw new RuntimeException("Catégorie introuvable...");
 	}
 
 	@Override
@@ -168,7 +168,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public Loan addLoan(Loan l) {
-		loans.put(l.getId(), l);		
+		loans.put(l.getId(), l);
 		return l;
 	}
 
@@ -185,11 +185,11 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deleteLoan(long id) {
-		if(loans.get(id)!=null){
+		if (loans.get(id) != null) {
 			loans.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Prêt introuvable...");
+		} else
+			throw new RuntimeException("Prêt introuvable...");
 	}
 
 	@Override
@@ -199,7 +199,7 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public User addUser(User u) {
-		users.put(u.getId(), u);		
+		users.put(u.getId(), u);
 		return u;
 	}
 
@@ -216,11 +216,11 @@ public class LibraryCore implements ILibraryCore {
 
 	@Override
 	public boolean deleteUser(long id) {
-		if(users.get(id)!=null){
+		if (users.get(id) != null) {
 			users.remove(id);
 			return true;
-		}
-		else throw new RuntimeException("Utilisateur introuvable...");
+		} else
+			throw new RuntimeException("Utilisateur introuvable...");
 	}
 
 }
