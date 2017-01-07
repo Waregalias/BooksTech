@@ -23,18 +23,18 @@ public class LibraryCore implements ILibraryCore {
 		addAuthor(new Author(1, "about", "nationality"));
 		addAuthor(new Author(2, "about2", "nationality2"));
 		addAuthor(new Author(3, "about3", "nationality3"));
-		addBook(new Book(1, "title", "summary", 5, "3679847811", "livre.jpg", new java.util.Date()));
-		addBook(new Book(2, "title2", "summary2", 6, "3679847812", "livre2.jpg", new java.util.Date()));
-		addBook(new Book(3, "title3", "summary3", 7, "3679847813", "livre3.jpg", new java.util.Date()));
-		addCategory(new Category(1, "category", "description"));
-		addCategory(new Category(2, "category2", "description2"));
-		addCategory(new Category(3, "category3", "description3"));
-		addLoan(new Loan(1, new java.util.Date(), 30));
-		addLoan(new Loan(2, new java.util.Date(), 15));
-		addLoan(new Loan(3, new java.util.Date(), 15));
 		addUser(new User(1, "admin", "password", new java.util.Date()));
 		addUser(new User(1, "customer", "customer", new java.util.Date()));
 		addUser(new User(1, "assistant", "assistant", new java.util.Date()));
+		addCategory(new Category(1, "category", "description"));
+		addCategory(new Category(2, "category2", "description2"));
+		addCategory(new Category(3, "category3", "description3"));
+		addBook(new Book(1, "title", "summary", 5, "3679847811", "livre.jpg", new java.util.Date(), getCategory(1), getAuthor(1)));
+		addBook(new Book(2, "title2", "summary2", 6, "3679847812", "livre2.jpg", new java.util.Date(), getCategory(1), getAuthor(1)));
+		addBook(new Book(3, "title3", "summary3", 7, "3679847813", "livre3.jpg", new java.util.Date(), getCategory(2), getAuthor(3)));
+		addLoan(new Loan(1, new java.util.Date(), 30));
+		addLoan(new Loan(2, new java.util.Date(), 15));
+		addLoan(new Loan(3, new java.util.Date(), 15));
 	}
 
 	@Override
@@ -102,6 +102,30 @@ public class LibraryCore implements ILibraryCore {
 	@Override
 	public List<Book> listBook() {
 		return new ArrayList<Book>(books.values());
+	}
+	
+	@Override
+	public List<Book> listBookByCat(long id) {
+		List<Book> book = new ArrayList<Book>();
+		
+		for(Book b:books.values()){
+			
+			if(b.getCategory().getId() == id)			
+				book.add(b);
+		}
+		return book;
+	}
+	
+	@Override
+	public List<Book> listBookByAut(long id) {
+		List<Book> book = new ArrayList<Book>();
+		
+		for(Book b:books.values()){
+			
+			if(b.getAuthor().getId() == id)			
+				book.add(b);
+		}
+		return book;
 	}
 
 	@Override

@@ -57,9 +57,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/persons")
+	@Path("/persons/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deletePerson(@FormParam(value="id") Long id){
+	public boolean deletePerson(@PathParam(value="id") Long id){
 		return core.deletePerson(id);
 	}
 	
@@ -92,9 +92,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/authors")
+	@Path("/authors/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deleteAuthor(@FormParam(value="id") Long id){
+	public boolean deleteAuthor(@PathParam(value="id") Long id){
 		return core.deleteAuthor(id);
 	}
 	
@@ -103,6 +103,20 @@ public class RESTLibraryService {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<Book> listBook(){
 		return core.listBook();
+	}
+	
+	@GET
+	@Path("/books/categories/{id}")
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public List<Book> listBookByCat(@PathParam(value="id") Long id){
+		return core.listBookByCat(id);
+	}
+	
+	@GET
+	@Path("/books/authors/{id}")
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public List<Book> listBookByAut(@PathParam(value="id") Long id){
+		return core.listBookByAut(id);
 	}
 	
 	@POST
@@ -127,9 +141,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/books")
+	@Path("/books/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deleteBook(@FormParam(value="id") Long id){
+	public boolean deleteBook(@PathParam(value="id") Long id){
 		return core.deleteBook(id);
 	}
 	
@@ -162,9 +176,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/categories")
+	@Path("/categories/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deleteCategory(@FormParam(value="id") Long id){
+	public boolean deleteCategory(@PathParam(value="id") Long id){
 		return core.deleteCategory(id);
 	}
 
@@ -197,9 +211,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/loans")
+	@Path("/loans/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deleteLoan(@FormParam(value="id") Long id){
+	public boolean deleteLoan(@PathParam(value="id") Long id){
 		return core.deleteLoan(id);
 	}
 
@@ -232,9 +246,9 @@ public class RESTLibraryService {
 	}
 	
 	@DELETE
-	@Path("/users")
+	@Path("/users/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deleteUser(@FormParam(value="id") Long id){
+	public boolean deleteUser(@PathParam(value="id") Long id){
 		return core.deleteUser(id);
 	}
 

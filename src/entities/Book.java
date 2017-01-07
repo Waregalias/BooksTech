@@ -14,12 +14,14 @@ public class Book implements Serializable {
 	private String isbn;
 	private String picture;
 	private Date datePublish;
+	private Category category;
+	private Author author;
 
 	public Book() {
 		super();
 	}
 	
-	public Book(long id, String title, String summary, int qty, String isbn, String picture, Date datePublish) {
+	public Book(long id, String title, String summary, int qty, String isbn, String picture, Date datePublish, Category category, Author author) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -28,6 +30,8 @@ public class Book implements Serializable {
 		this.isbn = isbn;
 		this.picture = picture;
 		this.datePublish = datePublish;
+		this.category = category;
+		this.author = author;
 	}
 
 	public long getId() {
@@ -84,6 +88,24 @@ public class Book implements Serializable {
 
 	public void setDatePublish(Date datePublish) {
 		this.datePublish = datePublish;
+	}
+
+	
+	public Category getCategory() {
+		return category;
+	}
+
+	
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

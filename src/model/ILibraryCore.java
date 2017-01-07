@@ -19,6 +19,8 @@ public interface ILibraryCore {
 	public boolean deleteAuthor(long id);
 	
 	public List<Book> listBook();
+	public List<Book> listBookByCat(long id);
+	public List<Book> listBookByAut(long id);
 	public Book addBook(Book b);
 	public Book getBook(long id);
 	public Book updateBook(Book b);
