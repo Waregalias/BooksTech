@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +8,6 @@ import java.util.Map;
 import entities.*;
 
 public class LibraryCore implements ILibraryCore {
-	private Map<Long, Person> persons = new HashMap<Long, Person>();
 	private Map<Long, Author> authors = new HashMap<Long, Author>();
 	private Map<Long, Book> books = new HashMap<Long, Book>();
 	private Map<Long, Category> categories = new HashMap<Long, Category>();
@@ -17,55 +15,21 @@ public class LibraryCore implements ILibraryCore {
 	private Map<Long, User> users = new HashMap<Long, User>();
 
 	public void dataDemo() {
-		addPerson(new Person(1, "lastname", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date()));
-		addPerson(new Person(2, "lastname2", "surname2", "M", "picture2.jpg", "email2@ynov.com", new java.util.Date()));
-		addPerson(new Person(3, "lastname3", "surname3", "M", "picture3.jpg", "email3@ynov.com", new java.util.Date()));
-		addAuthor(new Author(1, "about", "nationality"));
-		addAuthor(new Author(2, "about2", "nationality2"));
-		addAuthor(new Author(3, "about3", "nationality3"));
-		addUser(new User(1, "admin", "password", new java.util.Date()));
-		addUser(new User(1, "customer", "customer", new java.util.Date()));
-		addUser(new User(1, "assistant", "assistant", new java.util.Date()));
+		addAuthor(new Author(1, "lastnameA", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "about", "nationality", TypeAuthor.AUTHOR));
+		addAuthor(new Author(2, "lastnameA", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "about2", "nationality2", TypeAuthor.AUTHOR));
+		addAuthor(new Author(3, "lastnameA", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "about3", "nationality3", TypeAuthor.AUTHOR));
+		addUser(new User(1, "lastnameU", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "admin", "password", new java.util.Date(), AccountType.ACTIVE));
+		addUser(new User(1, "lastnameU", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "customer", "customer", new java.util.Date(), AccountType.ACTIVE));
+		addUser(new User(1, "lastnameU", "surname", "M", "picture.jpg", "email@ynov.com", new java.util.Date(), "assistant", "assistant", new java.util.Date(), AccountType.ACTIVE));
 		addCategory(new Category(1, "category", "description"));
 		addCategory(new Category(2, "category2", "description2"));
 		addCategory(new Category(3, "category3", "description3"));
 		addBook(new Book(1, "title", "summary", 5, "3679847811", "livre.jpg", new java.util.Date(), getCategory(1), getAuthor(1)));
 		addBook(new Book(2, "title2", "summary2", 6, "3679847812", "livre2.jpg", new java.util.Date(), getCategory(1), getAuthor(1)));
 		addBook(new Book(3, "title3", "summary3", 7, "3679847813", "livre3.jpg", new java.util.Date(), getCategory(2), getAuthor(3)));
-		addLoan(new Loan(1, new java.util.Date(), 30));
-		addLoan(new Loan(2, new java.util.Date(), 15));
-		addLoan(new Loan(3, new java.util.Date(), 15));
-	}
-
-	@Override
-	public List<Person> listPerson() {
-		return new ArrayList<Person>(persons.values());
-	}
-
-	@Override
-	public Person addPerson(Person p) {
-		persons.put(p.getId(), p);
-		return p;
-	}
-
-	@Override
-	public Person getPerson(long id) {
-		return persons.get(id);
-	}
-
-	@Override
-	public Person updatePerson(Person p) {
-		persons.put(p.getId(), p);
-		return p;
-	}
-
-	@Override
-	public boolean deletePerson(long id) {
-		if (persons.get(id) != null) {
-			persons.remove(id);
-			return true;
-		} else
-			throw new RuntimeException("Personne introuvable...");
+		addLoan(new Loan(1, new java.util.Date(), 30, null, null));
+		addLoan(new Loan(2, new java.util.Date(), 15, null, null));
+		addLoan(new Loan(3, new java.util.Date(), 15, null, null));
 	}
 
 	@Override

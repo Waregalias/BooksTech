@@ -5,12 +5,6 @@ import java.util.List;
 import entities.*; 
 
 public interface ILibraryCore {
-	
-	public List<Person> listPerson();
-	public Person addPerson(Person p);
-	public Person getPerson(long id);
-	public Person updatePerson(Person p);
-	public boolean deletePerson(long id);
 
 	public List<Author> listAuthor();
 	public Author addAuthor(Author a);

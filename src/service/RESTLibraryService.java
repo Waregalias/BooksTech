@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -26,41 +25,6 @@ public class RESTLibraryService {
 	public RESTLibraryService() {
 		core = new LibraryCore();
 		core.dataDemo();
-	}
-	
-	@GET
-	@Path("/persons")
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public List<Person> listPerson(){
-		return core.listPerson();
-	}
-	
-	@POST
-	@Path("/persons")
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public Person addPerson(Person p){
-		return core.addPerson(p);
-	}
-	
-	@GET
-	@Path("/persons/{id}")
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public Person getPerson(@PathParam(value="id") Long id){
-		return core.getPerson(id);
-	}
-	
-	@PUT
-	@Path("/persons")
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public Person updatePerson(Person p){
-		return core.updatePerson(p);
-	}
-	
-	@DELETE
-	@Path("/persons/{id}")
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public boolean deletePerson(@PathParam(value="id") Long id){
-		return core.deletePerson(id);
 	}
 	
 	@GET

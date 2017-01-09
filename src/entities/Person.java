@@ -1,18 +1,37 @@
 package entities;
 
+
 import java.io.Serializable;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-public class Person implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Column(name="lastname")
 	private String lastname;
+	@Column(name="surname")
 	private String surname;
+	@Column(name="sex")
 	private String sex;
+	@Column(name="picture")
 	private String picture;
+	@Column(name="email")
 	private String email;
+	@Column(name="birthday")
 	private Date birthday;
 
 	public Person() {
@@ -29,7 +48,7 @@ public class Person implements Serializable {
 		this.email = email;
 		this.birthday = birthday;
 	}
-
+	
 	public long getId() {
 		return id;
 	}
