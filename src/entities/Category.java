@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="category")
+@Table(name="DBCATEGORY")
 @XmlRootElement
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;

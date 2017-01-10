@@ -24,7 +24,7 @@ import model.LibraryCore;
 public class RESTLibraryService {
 	@EJB
 	private ILibraryCore core;
-	
+		
 	public RESTLibraryService() {
 		core = new LibraryCore();
 		core.dataDemo();

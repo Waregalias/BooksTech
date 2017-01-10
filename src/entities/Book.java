@@ -9,14 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="book")
+@Table(name="DBBOOK")
 @XmlRootElement
 public class Book implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -43,9 +42,9 @@ public class Book implements Serializable {
 	@JoinColumn(name="author")
 	private Author author;
 	
-	@OneToOne
-	@JoinColumn(name="loan")
-	private Loan loan;
+//	@OneToOne
+//	@JoinColumn(name="loan")
+//	private Loan loan;
 
 	public Book() {
 		super();

@@ -5,15 +5,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="user")
+@Table(name="DBUSER")
 @XmlRootElement
 public class User extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,12 +23,12 @@ public class User extends Person implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="lastConnect")
 	private Date lastConnect;
-	@Column(name="accounttype")
+	@Column(name="accounttype", columnDefinition="VARCHAR(255)")
 	private AccountType type;
 		
-	@OneToOne
-	@JoinColumn(name="loan")
-	private Loan loan;
+//	@OneToOne
+//	@JoinColumn(name="loan")
+//	private Loan loan;
 	
 	public User() {
 		super();

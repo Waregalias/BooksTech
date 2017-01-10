@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="author")
+@Table(name="DBAUTHOR")
 @XmlRootElement
 public class Author extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class Author extends Person implements Serializable {
 	private String about;
 	@Column(name="nationality")
 	private String nationality;
-	@Column(name="typeauthor")
+	@Column(name="typeauthor", columnDefinition="VARCHAR(255)")
 	private TypeAuthor type;
 
 	public Author() {

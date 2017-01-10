@@ -9,14 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="loan")
+@Table(name="DBLOAN")
 @XmlRootElement
 public class Loan implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,11 +30,12 @@ public class Loan implements Serializable {
 	private Date startDate;
 	@Column(name="duration")
 	private int duration;
-	@OneToOne
-	@JoinColumn(name="book")
+	
+	@ManyToOne
+	@JoinColumn(name="book_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Book book;
-	@OneToOne
-	@JoinColumn(name="user")
+	@ManyToOne
+	@JoinColumn(name="usr_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private User user;
 
 	public Loan() {
