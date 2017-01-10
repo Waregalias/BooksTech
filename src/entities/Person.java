@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
@@ -31,6 +33,7 @@ public abstract class Person implements Serializable {
 	private String picture;
 	@Column(name="email")
 	private String email;
+	@Temporal(TemporalType.DATE)
 	@Column(name="birthday")
 	private Date birthday;
 

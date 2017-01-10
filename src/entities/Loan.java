@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -23,6 +25,7 @@ public class Loan implements Serializable {
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Temporal(TemporalType.DATE)
 	@Column(name="startDate")
 	private Date startDate;
 	@Column(name="duration")

@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,13 +16,15 @@ import javax.ws.rs.core.MediaType;
 import com.sun.jersey.spi.resource.Singleton;
 
 import entities.*;
+import model.ILibraryCore;
 import model.LibraryCore;
 
-@Path("/library")
 @Singleton
+@Path("/library")
 public class RESTLibraryService {
-	private LibraryCore core;
-
+	@EJB
+	private ILibraryCore core;
+	
 	public RESTLibraryService() {
 		core = new LibraryCore();
 		core.dataDemo();

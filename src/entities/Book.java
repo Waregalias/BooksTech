@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -33,6 +35,7 @@ public class Book implements Serializable {
 	private String isbn;
 	@Column(name="picture")
 	private String picture;
+	@Temporal(TemporalType.DATE)
 	@Column(name="datePublish")
 	private Date datePublish;
 	@JoinColumn(name="category")

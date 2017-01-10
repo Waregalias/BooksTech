@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -20,6 +22,7 @@ public class User extends Person implements Serializable {
 	private String username;
 	@Column(name="password")
 	private String password;
+	@Temporal(TemporalType.DATE)
 	@Column(name="lastConnect")
 	private Date lastConnect;
 	@Column(name="accounttype")
