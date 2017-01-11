@@ -17,18 +17,12 @@ import com.sun.jersey.spi.resource.Singleton;
 
 import entities.*;
 import model.ILibraryCore;
-import model.LibraryCore;
 
 @Singleton
 @Path("/library")
 public class RESTLibraryService {
 	@EJB
 	private ILibraryCore core;
-		
-	public RESTLibraryService() {
-		core = new LibraryCore();
-		core.dataDemo();
-	}
 	
 	@GET
 	@Path("/authors")
