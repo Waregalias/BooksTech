@@ -263,4 +263,5 @@ public class LibraryCore implements ILibraryCore {
 		addLoan(new Loan(2, new java.util.Date(), 15, getBook(2), getUser(1)));
 		addLoan(new Loan(3, new java.util.Date(), 15, getBook(3), getUser(2)));
 	}
+
 }
